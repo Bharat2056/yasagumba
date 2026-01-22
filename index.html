@@ -1,502 +1,849 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ne">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>हिमाली यार्सागुम्बा - प्राकृतिक शक्ति र जोश</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
-    <!-- SweetAlert2 for nice popups -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Oswald:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
-        html {
-            scroll-behavior: smooth;
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #ffffff;
+        color: #1a202c;
+      }
+      .oswald {
+        font-family: "Oswald", sans-serif;
+      }
+
+      .bg-red-accent {
+        background-color: #dc2626;
+      }
+      .text-red-accent {
+        color: #dc2626;
+      }
+
+      .btn-green {
+        background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 14px 0 rgba(5, 150, 105, 0.3);
+      }
+
+      .btn-red {
+        background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 14px 0 rgba(220, 38, 38, 0.3);
+      }
+      .btn-red:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+      }
+
+      .badge-pulse {
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4);
         }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #050a08;
-            color: #ffffff;
+        70% {
+          transform: scale(1.05);
+          box-shadow: 0 0 0 10px rgba(220, 38, 38, 0);
         }
-        .oswald {
-            font-family: 'Oswald', sans-serif;
+        100% {
+          transform: scale(1);
+          box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
         }
-        .gold-gradient {
-            background: linear-gradient(90deg, #d4af37 0%, #f9e29a 50%, #d4af37 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .btn-primary {
-            background: linear-gradient(135deg, #059669 0%, #064e3b 100%);
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(16, 185, 129, 0.5);
-        }
-        .hero-glow {
-            background: radial-gradient(circle at center, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
-        }
-        .badge-pulse {
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-        }
-        .float-whatsapp {
-            position: fixed;
-            bottom: 100px; /* Adjusted to sit above footer */
-            right: 20px;
-            background-color: #25d366;
-            color: white;
-            width: 50px; /* Smaller on mobile */
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            z-index: 40; /* Lower z-index than footer */
-            transition: transform 0.3s;
-        }
-        .float-whatsapp:hover {
-            transform: scale(1.1);
-        }
-        @media (min-width: 768px) {
-            .float-whatsapp {
-                width: 60px;
-                height: 60px;
-                bottom: 100px;
-            }
-        }
-        /* Loading Spinner */
-        .spinner {
-            display: none;
-            width: 20px;
-            height: 20px;
-            border: 3px solid #ffffff;
-            border-radius: 50%;
-            border-top-color: transparent;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+      }
+
+      .float-whatsapp {
+        position: fixed;
+        bottom: 100px;
+        right: 20px;
+        background-color: #25d366;
+        color: white;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        z-index: 50;
+        transition: transform 0.3s;
+      }
+      .float-whatsapp:hover {
+        transform: scale(1.1);
+      }
+
+      .product-card {
+        border: 1px solid #f1f5f9;
+        transition: all 0.3s ease;
+      }
+      .product-card:hover {
+        border-color: #059669;
+        transform: translateY(-5px);
+      }
+
+      .gold-gradient {
+        background: linear-gradient(
+          90deg,
+          #b45309 0%,
+          #d97706 50%,
+          #b45309 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
     </style>
-</head>
-<body class="overflow-x-hidden">
-
-    <!-- Floating Contact -->
-    <a href="https://wa.me/9779800000000" class="float-whatsapp">
-        <svg class="w-6 h-6 md:w-8 md:h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    </a>
-
-    <!-- Top Urgency Banner -->
-    <div class="bg-emerald-900 text-emerald-100 py-2 px-2 text-center text-xs md:text-sm font-bold tracking-widest uppercase border-b border-emerald-500/20">
-        सिमित समयको लागि विशेष अफर! बाँकी समय: <span id="timer" class="text-white">12:45:00</span>
+  </head>
+  <body class="antialiased overflow-x-hidden">
+    <!-- Urgency Top Bar -->
+    <div
+      class="bg-red-accent text-white py-2 text-center text-xs md:text-sm font-bold tracking-tight px-4"
+    >
+      सचेत रहनुहोस्! स्टक सिमित छ। विशेष अफर सकिन बाँकी समय:
+      <span id="timer" class="font-mono text-yellow-300">11:59:59</span>
     </div>
 
-    <!-- Hero Section -->
-    <section class="relative min-h-[90vh] md:min-h-screen flex flex-col md:flex-row border-b border-emerald-900/20">
-        <!-- Left: Image & Guarantee -->
-        <div class="w-full md:w-1/2 relative h-[40vh] md:h-screen bg-black flex items-center justify-center overflow-hidden">
-            <img src="./assets/yarsagumba.jpeg" onerror="this.src='https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&q=80&w=1000'" alt="Himali Yarsagumba Green Theme" class="absolute inset-0  w-full h-full object-cover opacity-80">
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40"></div>
-            
-            <div class="relative z-10 text-center">
-                <div class="w-32 h-32 md:w-56 md:h-56 rounded-full border-2 border-emerald-600/50 bg-black/80 backdrop-blur-md flex items-center justify-center text-center p-4 md:p-6 badge-pulse">
-                    <div class="flex flex-col items-center">
-                        <svg class="w-8 h-8 md:w-12 md:h-12 text-emerald-500 mb-1 md:mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                        <span class="text-white font-bold text-xs md:text-base uppercase tracking-tighter">१००% ओरिजिनल<br>प्रमाणित</span>
-                    </div>
-                </div>
-            </div>
+    <!-- Header / Nav -->
+    <nav
+      class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 py-3 px-6 flex justify-between items-center"
+    >
+      <div class="flex items-center gap-2">
+        <div
+          class="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center text-white font-bold"
+        >
+          Y
         </div>
+        <span
+          class="oswald font-bold text-xl tracking-tighter text-gray-800 uppercase"
+          >Himali <span class="text-emerald-600">Yarsa</span></span
+        >
+      </div>
+      <a
+        href="#order"
+        class="hidden md:block bg-gray-900 text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-emerald-700 transition-colors"
+      >
+        अहिले अर्डर गर्नुहोस्
+      </a>
+    </nav>
 
-        <!-- Right: Text & Action -->
-        <div class="w-full md:w-1/2 relative min-h-[50vh] md:h-screen flex items-center justify-center p-6 md:p-16 hero-glow">
-            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200" alt="Himalayan Peaks" class="absolute inset-0 w-full h-full object-cover opacity-10">
-            
-            <div class="relative z-10 max-w-xl">
-                <div class="flex items-center gap-3 mb-4 md:mb-6">
-                    <span class="h-px w-8 md:w-12 bg-emerald-600"></span>
-                    <span class="text-emerald-500 font-bold uppercase tracking-widest text-xs md:text-sm">Pure Natural Essence</span>
-                </div>
-                <!-- Reduced font size for mobile -->
-                <h1 class="oswald text-4xl md:text-5xl lg:text-7xl font-bold uppercase leading-[1] mb-4 md:mb-6">
-                    शारीरिक <span class="gold-gradient italic">शक्ति र जोश</span> बढाउनुहोस्
-                </h1>
-                <p class="text-lg md:text-2xl text-gray-300 mb-8 md:mb-10 border-l-4 border-emerald-600 pl-4 md:pl-6 leading-relaxed">
-                    १००% ओरिजिनल हिमाली यार्सागुम्बा क्याप्सुल। स्टामिना, हर्मोन वृद्धि र चरम सन्तुष्टिको लागि।
-                </p>
-                <div class="flex flex-col sm:flex-row gap-5">
-                    <a href="#order" class="btn-primary text-white font-black py-4 px-8 md:py-5 md:px-10 rounded-xl text-lg shadow-xl tracking-tight text-center">
-                        अहिले नै अर्डर गर्नुहोस्
-                    </a>
-                    <div class="flex flex-col justify-center">
-                        <span class="text-emerald-400 font-bold text-xl md:text-2xl tracking-tighter leading-none">रु २२००/- मात्र</span>
-                        <span class="text-gray-500 text-xs md:text-sm line-through uppercase">३५ क्याप्सुल</span>
-                    </div>
-                </div>
+    <!-- Hero Section -->
+    <section
+      class="relative overflow-hidden bg-white pt-10 pb-20 lg:pt-20 lg:pb-32"
+    >
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+          <!-- Left Text Content -->
+          <div class="lg:w-1/2 text-center lg:text-left">
+            <div
+              class="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-4 py-1.5 rounded-full text-sm font-bold mb-6"
+            >
+              <span
+                class="flex h-2 w-2 rounded-full bg-emerald-500 animate-ping"
+              ></span>
+              १००% शुद्ध हिमाली जडिबुटी
             </div>
+            <h1
+              class="oswald text-5xl lg:text-8xl font-bold leading-[1.1] text-gray-900 mb-6"
+            >
+              शारीरिक <span class="text-emerald-600">शक्ति र जोश</span> को नयाँ
+              स्रोत
+            </h1>
+            <p
+              class="text-lg lg:text-xl text-gray-600 mb-10 max-w-xl mx-auto lg:mx-0"
+            >
+              यौन दुर्बलता, थकान र कमजोरी हटाउन डोल्पाको असली यार्सागुम्बा
+              क्याप्सुल। आजैबाट नयाँ ऊर्जा महसुस गर्नुहोस्।
+            </p>
+            <div
+              class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+            >
+              <a
+                href="#order"
+                class="btn-red w-full sm:w-auto text-white px-10 py-5 rounded-2xl font-black text-xl uppercase tracking-tight shadow-xl"
+              >
+                अहिले नै अर्डर गर्नुहोस्
+              </a>
+              <div class="flex flex-col items-center lg:items-start">
+                <span class="text-3xl font-bold text-gray-900 leading-none"
+                  >रु २२००/-</span
+                >
+                <span class="text-sm text-gray-400 line-through"
+                  >रु ३५००/-</span
+                >
+              </div>
+            </div>
+            <!-- Trust Icons -->
+            <div
+              class="mt-12 flex items-center justify-center lg:justify-start gap-8 opacity-60 grayscale hover:grayscale-0 transition-all"
+            >
+              <div class="flex items-center gap-2">
+                <svg
+                  class="w-6 h-6 text-emerald-600"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                  />
+                </svg>
+                <span class="text-xs font-bold uppercase tracking-widest"
+                  >Lab Tested</span
+                >
+              </div>
+              <div class="flex items-center gap-2">
+                <svg
+                  class="w-6 h-6 text-emerald-600"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  />
+                </svg>
+                <span class="text-xs font-bold uppercase tracking-widest"
+                  >Organic Pure</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Visual -->
+          <div class="lg:w-1/2 relative">
+            <div
+              class="relative z-10 bg-white p-4 rounded-[2rem] shadow-2xl border border-gray-100"
+            >
+              <img
+                src="./assets/yarsagumba.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&q=80&w=800'
+                "
+                alt="Yarsagumba Product"
+                class="rounded-[1.5rem] w-full h-[400px] md:h-[500px] object-cover"
+              />
+
+              <!-- Floating Badge -->
+              <div
+                class="absolute -top-6 -right-6 bg-red-600 text-white w-24 h-24 rounded-full flex flex-col items-center justify-center font-bold shadow-2xl badge-pulse"
+              >
+                <span class="text-xs uppercase tracking-tighter"
+                  >बचत गर्नुहोस्</span
+                >
+                <span class="text-xl">रु १३००</span>
+              </div>
+            </div>
+            <!-- Background Decoration -->
+            <div
+              class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-emerald-50 rounded-full blur-[100px] opacity-60"
+            ></div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Social Proof Bar -->
-    <div class="bg-zinc-900 border-y border-white/5 py-4 md:py-6 overflow-hidden">
-        <div class="flex items-center justify-around flex-wrap gap-4 px-4 md:gap-8">
-            <span class="text-sm md:text-base font-bold text-gray-400 hover:text-emerald-500 hover:scale-105 transition-all duration-300 cursor-default">✓ देशभरि फ्री डेलिभरी</span>
-            <span class="text-sm md:text-base font-bold text-gray-400 hover:text-emerald-500 hover:scale-105 transition-all duration-300 cursor-default">✓ क्यास अन डेलिभरी</span>
-            <span class="text-sm md:text-base font-bold text-gray-400 hover:text-emerald-500 hover:scale-105 transition-all duration-300 cursor-default">✓ १००% हर्बल</span>
-            <span class="text-sm md:text-base font-bold text-gray-400 hover:text-emerald-500 hover:scale-105 transition-all duration-300 cursor-default">✓ सुरक्षित प्याकिङ</span>
+    <div class="bg-gray-50 border-y border-gray-200 py-6 overflow-hidden">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-wrap justify-center gap-6 md:gap-12 items-center">
+          <span class="text-sm md:text-base font-bold text-gray-600"
+            >✓ देशभरि फ्री डेलिभरी</span
+          >
+          <span class="text-sm md:text-base font-bold text-gray-600"
+            >✓ क्यास अन डेलिभरी</span
+          >
+          <span class="text-sm md:text-base font-bold text-gray-600"
+            >✓ १००% हर्बल</span
+          >
+          <span class="text-sm md:text-base font-bold text-gray-600"
+            >✓ सुरक्षित प्याकिङ</span
+          >
         </div>
+      </div>
     </div>
 
-    <!-- Key Benefits Section -->
-    <section class="py-16 md:py-24 bg-neutral-950">
-        <div class="container mx-auto px-6 text-center mb-10 md:mb-16">
-            <h2 class="oswald text-3xl md:text-5xl font-bold uppercase tracking-tighter">हिमाली यार्साका <span class="text-emerald-500">फाइदाहरू</span></h2>
+    <!-- Benefits Section -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="oswald text-4xl lg:text-6xl font-bold uppercase mb-4">
+            हिमाली यार्साका <span class="text-emerald-600">फाइदाहरू</span>
+          </h2>
+          <div class="h-1.5 w-24 bg-red-600 mx-auto rounded-full"></div>
         </div>
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                <!-- Benefit 1 -->
-                <div class="p-6 md:p-8 rounded-3xl bg-emerald-950/10 border border-emerald-900/20 hover:border-emerald-500/50 transition-all group">
-                    <div class="w-12 h-12 bg-emerald-600/20 text-emerald-500 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                    </div>
-                    <h3 class="text-xl md:text-2xl font-bold text-emerald-400 mb-4 tracking-tight">१. स्टामिना वृद्धि</h3>
-                    <p class="text-gray-400">यसले शरीरमा प्राकृतिक रुपमा हर्मोनको उत्पादन बढाई स्टामिना र तागत प्रदान गर्दछ।</p>
-                </div>
-                <!-- Benefit 2 -->
-                <div class="p-6 md:p-8 rounded-3xl bg-emerald-950/10 border border-emerald-900/20 hover:border-emerald-500/50 transition-all group">
-                    <div class="w-12 h-12 bg-emerald-600/20 text-emerald-500 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
-                    <h3 class="text-xl md:text-2xl font-bold text-emerald-400 mb-4 tracking-tight">२. दीर्घकालीन क्षमता</h3>
-                    <p class="text-gray-400">शिघ्र स्खलन रोक्न मद्दत गरी बेडमा लामो समयसम्म टिकाइ राख्न सहयोग गर्दछ।</p>
-                </div>
-                <!-- Benefit 3 -->
-                <div class="p-6 md:p-8 rounded-3xl bg-emerald-950/10 border border-emerald-900/20 hover:border-emerald-500/50 transition-all group">
-                    <div class="w-12 h-12 bg-emerald-600/20 text-emerald-500 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-                    </div>
-                    <h3 class="text-xl md:text-2xl font-bold text-emerald-400 mb-4 tracking-tight">३. रक्तसञ्चारमा सुधार</h3>
-                    <p class="text-gray-400">नशाहरुमा रक्तसञ्चार बढाई लिङ्गलाई कडा, खडा र बलियो बनाउन मद्दत गर्दछ।</p>
-                </div>
-                <!-- Benefit 4 -->
-                <div class="p-6 md:p-8 rounded-3xl bg-emerald-950/10 border border-emerald-900/20 hover:border-emerald-500/50 transition-all group">
-                    <div class="w-12 h-12 bg-emerald-600/20 text-emerald-500 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                    </div>
-                    <h3 class="text-xl md:text-2xl font-bold text-emerald-400 mb-4 tracking-tight">४. अन्य रोगिहरुका लागि</h3>
-                    <p class="text-gray-400">प्रेसर, सुगर र मुटुको समस्या भएकाहरूका लागि यो एक रामबाण इलाज हो।</p>
-                </div>
-                <!-- Benefit 5 -->
-                <div class="p-6 md:p-8 rounded-3xl bg-emerald-950/10 border border-emerald-900/20 hover:border-emerald-500/50 transition-all group">
-                    <div class="w-12 h-12 bg-emerald-600/20 text-emerald-500 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-                    </div>
-                    <h3 class="text-xl md:text-2xl font-bold text-emerald-400 mb-4 tracking-tight">५. इम्युनिटी र आनन्द</h3>
-                    <p class="text-gray-400">रोग प्रतिरोधात्मक क्षमता बढाउँछ र यौन इच्छामा चरम आनन्द दिन्छ।</p>
-                </div>
-                <!-- Benefit 6 -->
-                <div class="p-6 md:p-8 rounded-3xl bg-emerald-950/10 border border-emerald-900/20 hover:border-emerald-500/50 transition-all group">
-                    <div class="w-12 h-12 bg-emerald-600/20 text-emerald-500 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
-                    <h3 class="text-xl md:text-2xl font-bold text-emerald-400 mb-4 tracking-tight">६. प्राकृतिक र सुरक्षित</h3>
-                    <p class="text-gray-400">यो १००% प्राकृतिक जडिबुटीबाट बनेको हुनाले कुनै पनि नकारात्मक असर गर्दैन।</p>
-                </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Benefit 1 -->
+          <div class="bg-gray-50 p-8 rounded-3xl product-card group">
+            <div
+              class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-all"
+            >
+              <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
+              </svg>
             </div>
+            <h3 class="text-2xl font-bold mb-4">१. स्टामिना वृद्धि</h3>
+            <p class="text-gray-600 leading-relaxed">
+              यसले शरीरमा प्राकृतिक रुपमा हर्मोनको उत्पादन बढाई स्टामिना र तागत
+              प्रदान गर्दछ।
+            </p>
+          </div>
+          <!-- Benefit 2 -->
+          <div class="bg-gray-50 p-8 rounded-3xl product-card group">
+            <div
+              class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-all"
+            >
+              <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">२. दीर्घकालीन क्षमता</h3>
+            <p class="text-gray-600 leading-relaxed">
+              शिघ्र स्खलन रोक्न मद्दत गरी बेडमा लामो समयसम्म टिकाइ राख्न सहयोग
+              गर्दछ।
+            </p>
+          </div>
+          <!-- Benefit 3 -->
+          <div class="bg-gray-50 p-8 rounded-3xl product-card group">
+            <div
+              class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-all"
+            >
+              <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">३. रक्तसञ्चारमा सुधार</h3>
+            <p class="text-gray-600 leading-relaxed">
+              नशाहरुमा रक्तसञ्चार बढाई लिङ्गलाई कडा, खडा र बलियो बनाउन मद्दत
+              गर्दछ।
+            </p>
+          </div>
+          <!-- Benefit 4 -->
+          <div class="bg-gray-50 p-8 rounded-3xl product-card group">
+            <div
+              class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-all"
+            >
+              <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">४. अन्य रोगिहरुका लागि</h3>
+            <p class="text-gray-600 leading-relaxed">
+              प्रेसर, सुगर र मुटुको समस्या भएकाहरूका लागि यो एक रामबाण इलाज हो।
+            </p>
+          </div>
+          <!-- Benefit 5 -->
+          <div class="bg-gray-50 p-8 rounded-3xl product-card group">
+            <div
+              class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-all"
+            >
+              <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">५. इम्युनिटी र आनन्द</h3>
+            <p class="text-gray-600 leading-relaxed">
+              रोग प्रतिरोधात्मक क्षमता बढाउँछ र यौन इच्छामा चरम आनन्द दिन्छ।
+            </p>
+          </div>
+          <!-- Benefit 6 -->
+          <div class="bg-gray-50 p-8 rounded-3xl product-card group">
+            <div
+              class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-all"
+            >
+              <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">६. प्राकृतिक र सुरक्षित</h3>
+            <p class="text-gray-600 leading-relaxed">
+              यो १००% प्राकृतिक जडिबुटीबाट बनेको हुनाले कुनै पनि नकारात्मक असर
+              गर्दैन।
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Visual Story Section (Adding more images naturally) -->
-    <section class="py-16 md:py-24 bg-zinc-900 overflow-hidden">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col lg:flex-row items-center gap-12">
-                <!-- Text Side -->
-                <div class="lg:w-1/2">
-                    <h2 class="oswald text-3xl md:text-5xl font-bold uppercase mb-6 leading-tight">
-                        डोल्पाको हिमालबाट <br> <span class="text-emerald-500">तपाईंको घरसम्म</span>
-                    </h2>
-                    <p class="text-gray-400 text-lg mb-6 leading-relaxed">
-                        हाम्रो यार्सागुम्बा ४००० मिटर भन्दा माथिको हिमाली भेगबाट स्थानीयबासीहरु द्वारा संकलन गरिन्छ। यो कुनै मेसिनले बनाएको होइन, प्रकृतिले दिएको उपहार हो।
-                    </p>
-                    <ul class="space-y-4 text-gray-300">
-                        <li class="flex items-center gap-3">
-                            <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
-                            उच्च गुणस्तरको यार्सागुम्बा छनोट
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
-                            परम्परागत विधिबाट सफाई र प्याकेजिङ
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
-                            ल्याबबाट प्रमाणित र सुरक्षित
-                        </li>
-                    </ul>
-                </div>
-                <!-- Image Collage Side -->
-                <div class="lg:w-1/2 relative">
-                    <div class="grid grid-cols-2 gap-4">
-                        <img src="./assets/himalayan.png" alt="Himalayan Collector" class="rounded-2xl w-full h-48 md:h-64 object-cover transform translate-y-8">
-                        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=800" alt="Mountains" class="rounded-2xl w-full h-48 md:h-64 object-cover">
-                    </div>
-                    <!-- Decorative element -->
-                    <div class="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-emerald-500/10 blur-[100px] rounded-full"></div>
-                </div>
-            </div>
+    <!-- Visual Story Section -->
+    <section class="py-20 bg-emerald-50 overflow-hidden">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+          <div class="lg:w-1/2">
+            <h2
+              class="oswald text-4xl lg:text-6xl font-bold uppercase mb-6 leading-tight text-gray-900"
+            >
+              डोल्पाको हिमालबाट <br />
+              <span class="text-emerald-600">तपाईंको घरसम्म</span>
+            </h2>
+            <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+              हाम्रो यार्सागुम्बा ४००० मिटर भन्दा माथिको हिमाली भेगबाट
+              स्थानीयबासीहरु द्वारा संकलन गरिन्छ। यो कुनै मेसिनले बनाएको होइन,
+              प्रकृतिले दिएको उपहार हो।
+            </p>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-3 font-semibold text-gray-800">
+                <span class="w-2 h-2 bg-emerald-500 rounded-full"></span> उच्च
+                गुणस्तरको यार्सागुम्बा छनोट
+              </li>
+              <li class="flex items-center gap-3 font-semibold text-gray-800">
+                <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
+                परम्परागत विधिबाट सफाई र प्याकेजिङ
+              </li>
+              <li class="flex items-center gap-3 font-semibold text-gray-800">
+                <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
+                ल्याबबाट प्रमाणित र सुरक्षित
+              </li>
+            </ul>
+          </div>
+          <div class="lg:w-1/2 relative flex justify-center">
+            <img
+              src="/assets/product.PNG"
+              onerror="
+                this.src =
+                  'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1000'
+              "
+              alt="Product Image"
+              class="rounded-[2.5rem] w-full max-w-lg shadow-2xl"
+            />
+            <div
+              class="absolute -z-10 w-[120%] h-[120%] bg-white/40 blur-[80px] rounded-full"
+            ></div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Usage Section with Icon Steps -->
-    <section class="py-16 md:py-24 bg-zinc-950/50">
-        <div class="container mx-auto px-6">
-            <h2 class="oswald text-3xl md:text-4xl font-bold mb-10 md:mb-16 uppercase gold-gradient text-center">खाने सही तरिका</h2>
-            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                <div class="flex items-start gap-4 md:gap-6 bg-black p-6 md:p-8 rounded-3xl border border-white/5">
-                    <span class="text-4xl md:text-5xl font-black text-emerald-600 opacity-30">01</span>
-                    <div>
-                        <h4 class="text-lg md:text-xl font-bold text-white mb-2 uppercase">समय मिलाउनुहोस्</h4>
-                        <p class="text-sm md:text-base text-gray-400 leading-relaxed">सम्पर्कमा रहनु भन्दा १ देखि २ घण्टा अगाडि १ क्याप्सुल खानुहोस्।</p>
-                    </div>
-                </div>
-                <div class="flex items-start gap-4 md:gap-6 bg-black p-6 md:p-8 rounded-3xl border border-white/5">
-                    <span class="text-4xl md:text-5xl font-black text-emerald-600 opacity-30">02</span>
-                    <div>
-                        <h4 class="text-lg md:text-xl font-bold text-white mb-2 uppercase">प्रतिक्षा गर्नुहोस्</h4>
-                        <p class="text-sm md:text-base text-gray-400 leading-relaxed">खाएको १ घण्टा पछि यसले बिस्तारै आफ्नो काम देखाउन सुरु गर्छ।</p>
-                    </div>
-                </div>
+    <!-- Usage Section -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <h2
+          class="oswald text-4xl font-bold mb-16 uppercase gold-gradient text-center"
+        >
+          खाने सही तरिका
+        </h2>
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div
+            class="flex items-start gap-6 bg-gray-50 p-8 rounded-3xl border border-gray-100 shadow-sm"
+          >
+            <span class="text-5xl font-black text-emerald-200">01</span>
+            <div>
+              <h4 class="text-xl font-bold text-gray-900 mb-2 uppercase">
+                समय मिलाउनुहोस्
+              </h4>
+              <p class="text-gray-600 leading-relaxed">
+                सम्पर्कमा रहनु भन्दा १ देखि २ घण्टा अगाडि १ क्याप्सुल खानुहोस्।
+              </p>
             </div>
+          </div>
+          <div
+            class="flex items-start gap-6 bg-gray-50 p-8 rounded-3xl border border-gray-100 shadow-sm"
+          >
+            <span class="text-5xl font-black text-emerald-200">02</span>
+            <div>
+              <h4 class="text-xl font-bold text-gray-900 mb-2 uppercase">
+                प्रतिक्षा गर्नुहोस्
+              </h4>
+              <p class="text-gray-600 leading-relaxed">
+                खाएको १ घण्टा पछि यसले बिस्तारै आफ्नो काम देखाउन सुरु गर्छ।
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-16 md:py-24 bg-black relative border-y border-white/5">
-        <div class="container mx-auto px-6">
-            <h2 class="oswald text-3xl md:text-5xl font-bold uppercase text-center mb-16">
-                ग्राहकहरूको <span class="text-emerald-500">प्रतिक्रिया</span>
+    <section class="py-20 bg-gray-50 border-t border-gray-100">
+      <div class="container mx-auto px-6">
+        <h2
+          class="oswald text-4xl lg:text-6xl font-bold uppercase text-center mb-16 text-gray-900"
+        >
+          ग्राहकहरूको <span class="text-emerald-600">प्रतिक्रिया</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Review 1 -->
+          <div class="bg-white p-8 rounded-3xl shadow-lg relative">
+            <div class="flex items-center gap-1 mb-4 text-yellow-500 text-xl">
+              ★★★★★
+            </div>
+            <p class="text-gray-600 mb-6 italic">
+              "मैले धेरै औषधि प्रयोग गरेँ तर हिमाली यार्सा जस्तो अरु कुनै पाइन।
+              प्रयोग गरेको १ हप्तामै शरीरमा जोस र जाँगर आएको महसुस भयो।"
+            </p>
+            <div class="flex items-center gap-4">
+              <div
+                class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center font-bold text-emerald-700"
+              >
+                र
+              </div>
+              <div>
+                <h5 class="font-bold text-gray-900">रमेश अधिकारी</h5>
+                <p class="text-xs text-gray-400">काठमाडौं</p>
+              </div>
+            </div>
+          </div>
+          <!-- Review 2 -->
+          <div class="bg-white p-8 rounded-3xl shadow-lg relative">
+            <div class="flex items-center gap-1 mb-4 text-yellow-500 text-xl">
+              ★★★★★
+            </div>
+            <p class="text-gray-600 mb-6 italic">
+              "एकदमै राम्रो उत्पादन। साइड इफेक्ट केही पनि छैन। सुरुमा डर लागेको
+              थियो तर अहिले ढुक्क छु। सबैसँग सिफारिस गर्छु।"
+            </p>
+            <div class="flex items-center gap-4">
+              <div
+                class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center font-bold text-emerald-700"
+              >
+                स
+              </div>
+              <div>
+                <h5 class="font-bold text-gray-900">सुजन श्रेष्ठ</h5>
+                <p class="text-xs text-gray-400">पोखरा</p>
+              </div>
+            </div>
+          </div>
+          <!-- Review 3 -->
+          <div class="bg-white p-8 rounded-3xl shadow-lg relative">
+            <div class="flex items-center gap-1 mb-4 text-yellow-500 text-xl">
+              ★★★★★
+            </div>
+            <p class="text-gray-600 mb-6 italic">
+              "उमेर बढ्दै जाँदा कमजोर महसुस हुन्थ्यो, तर यो खाएपछि जवानी फर्केको
+              जस्तो भएको छ। प्याकिङ पनि एकदम गोप्य रहेछ।"
+            </p>
+            <div class="flex items-center gap-4">
+              <div
+                class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center font-bold text-emerald-700"
+              >
+                द
+              </div>
+              <div>
+                <h5 class="font-bold text-gray-900">दिनेश चौधरी</h5>
+                <p class="text-xs text-gray-400">चितवन</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Order Section -->
+    <section id="order" class="py-16 md:py-24 bg-white relative">
+      <div class="container mx-auto px-4 md:px-6">
+        <div
+          class="bg-white rounded-3xl md:rounded-[3rem] border border-gray-200 overflow-hidden flex flex-col lg:flex-row shadow-2xl"
+        >
+          <!-- Pricing Left -->
+          <div
+            class="lg:w-1/2 p-6 md:p-12 lg:p-20 border-b lg:border-b-0 lg:border-r border-gray-100 bg-emerald-50/50"
+          >
+            <span
+              class="inline-block bg-emerald-600 text-white px-4 py-1 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest mb-4 md:mb-6"
+              >नेपाल भर डेलिभरी</span
+            >
+            <h2
+              class="oswald text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-gray-900"
+            >
+              ३५ क्याप्सुलको मात्र <br /><span
+                class="text-emerald-600 tracking-tighter italic"
+                >रु २२००/-</span
+              >
             </h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Review 1 -->
-                <div class="bg-zinc-900/50 p-8 rounded-3xl border border-white/5 relative">
-                    <div class="text-emerald-500 text-4xl absolute top-6 right-6">❝</div>
-                    <div class="flex items-center gap-1 mb-4">
-                        <span class="text-yellow-500">★</span><span class="text-yellow-500">★</span><span class="text-yellow-500">★</span><span class="text-yellow-500">★</span><span class="text-yellow-500">★</span>
-                    </div>
-                    <p class="text-gray-300 mb-6 leading-relaxed">"मैले धेरै औषधि प्रयोग गरेँ तर हिमाली यार्सा जस्तो अरु कुनै पाइन। प्रयोग गरेको १ हप्तामै शरीरमा जोस र जाँगर आएको महसुस भयो।"</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-emerald-900 rounded-full flex items-center justify-center font-bold text-emerald-500">र</div>
-                        <div>
-                            <h5 class="font-bold text-white">रमेश अधिकारी</h5>
-                            <p class="text-xs text-gray-500">काठमाडौं</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Review 2 -->
-                <div class="bg-zinc-900/50 p-8 rounded-3xl border border-white/5 relative">
-                    <div class="text-emerald-500 text-4xl absolute top-6 right-6">❝</div>
-                    <div class="flex items-center gap-1 mb-4">
-                        <span class="text-yellow-500">★</span><span class="text-yellow-500">★</span><span class="text-yellow-500">★</span><span class="text-yellow-500">★</span><span class="text-yellow-500">★</span>
-                    </div>
-                    <p class="text-gray-300 mb-6 leading-relaxed">"एकदमै राम्रो उत्पादन। साइड इफेक्ट केही पनि छैन। सुरुमा डर लागेको थियो तर अहिले ढुक्क छु। सबैसँग सिफारिस गर्छु।"</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-emerald-900 rounded-full flex items-center justify-center font-bold text-emerald-500">स</div>
-                        <div>
-                            <h5 class="font-bold text-white">सुजन श्रेष्ठ</h5>
-                            <p class="text-xs text-gray-500">पोखरा</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Review 3 -->
-                <div class="bg-zinc-900/50 p-8 rounded-3xl border border-white/5 relative">
-                    <div class="text-emerald-500 text-4xl absolute top-6 right-6">❝</div>
-                    <div class="flex items-center gap-1 mb-4">
-                        <span class="text-yellow-500">★</span><span class="text-yellow-500">★</span><span class="text-yellow-500">★</span><span class="text-yellow-500">★</span><span class="text-yellow-500">★</span>
-                    </div>
-                    <p class="text-gray-300 mb-6 leading-relaxed">"उमेर बढ्दै जाँदा कमजोर महसुस हुन्थ्यो, तर यो खाएपछि जवानी फर्केको जस्तो भएको छ। प्याकिङ पनि एकदम गोप्य रहेछ।"</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-emerald-900 rounded-full flex items-center justify-center font-bold text-emerald-500">द</div>
-                        <div>
-                            <h5 class="font-bold text-white">दिनेश चौधरी</h5>
-                            <p class="text-xs text-gray-500">चितवन</p>
-                        </div>
-                    </div>
-                </div>
+            <ul class="space-y-3 md:space-y-4 mb-8 md:mb-10">
+              <li
+                class="flex items-center gap-3 text-gray-700 text-sm md:text-base"
+              >
+                <span class="text-emerald-500 font-bold">✔</span> डेलिभरी चार्ज
+                लाग्दैन
+              </li>
+              <li
+                class="flex items-center gap-3 text-gray-700 text-sm md:text-base"
+              >
+                <span class="text-emerald-500 font-bold">✔</span> सामान पाएपछि
+                पैसा दिने
+              </li>
+              <li
+                class="flex items-center gap-3 text-gray-700 text-sm md:text-base"
+              >
+                <span class="text-emerald-500 font-bold">✔</span> गोप्य
+                प्याकिङमा आउने
+              </li>
+            </ul>
+            <div
+              class="flex items-center gap-4 p-4 bg-white rounded-2xl border border-emerald-100 shadow-sm"
+            >
+              <div
+                class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center shrink-0"
+              >
+                <svg class="w-6 h-6" fill="white" viewBox="0 0 20 20">
+                  <path
+                    d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 005.474 5.474l.772-1.548a1 1 0 011.06-.539l4.436.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
+                  />
+                </svg>
+              </div>
+              <p class="text-sm font-bold text-gray-600">
+                फोनबाट अर्डर गर्न: <br /><span class="text-emerald-700 text-lg"
+                  >9800000000</span
+                >
+              </p>
             </div>
+          </div>
+          <!-- Order Form Right -->
+          <div class="lg:w-1/2 p-6 md:p-12 lg:p-20 bg-white">
+            <h3
+              class="text-xl md:text-2xl font-bold mb-6 md:mb-8 uppercase tracking-tight text-gray-900"
+            >
+              अर्डरको लागि विवरण भर्नुहोस्
+            </h3>
+            <!-- Added ID to form -->
+            <form id="orderForm" class="space-y-4">
+              <div class="relative">
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="तपाईंको पूरा नाम"
+                  required
+                  class="w-full bg-gray-50 border border-gray-300 p-4 md:p-5 rounded-xl focus:border-emerald-500 focus:bg-white focus:ring-2 focus:ring-emerald-200 outline-none transition-all text-base text-gray-900 placeholder-gray-400"
+                />
+              </div>
+              <div class="relative">
+                <input
+                  type="text"
+                  id="phone"
+                  placeholder="मोबाइल नम्बर"
+                  required
+                  class="w-full bg-gray-50 border border-gray-300 p-4 md:p-5 rounded-xl focus:border-emerald-500 focus:bg-white focus:ring-2 focus:ring-emerald-200 outline-none transition-all text-base text-gray-900 placeholder-gray-400"
+                />
+              </div>
+              <div class="relative">
+                <input
+                  type="text"
+                  id="address"
+                  placeholder="डेलिभरी ठेगाना (सहर/टोल)"
+                  required
+                  class="w-full bg-gray-50 border border-gray-300 p-4 md:p-5 rounded-xl focus:border-emerald-500 focus:bg-white focus:ring-2 focus:ring-emerald-200 outline-none transition-all text-base text-gray-900 placeholder-gray-400"
+                />
+              </div>
+              
+    <div class="pt-4">
+      <button
+        type="submit"
+        id="submitBtn"
+        class="btn-red w-full text-white font-black py-5 rounded-xl text-xl uppercase flex items-center justify-center gap-3"
+      >
+        <span id="btnText">अर्डर पक्का गर्नुहोस्</span>
+        <div
+          id="loader"
+          class="hidden w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"
+        ></div>
+      </button>
+    </div>
+            </form>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Pricing & Order Form -->
-    <section id="order" class="py-16 md:py-24 bg-black relative">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="bg-gradient-to-br from-emerald-950/20 to-black rounded-3xl md:rounded-[3rem] border border-emerald-600/20 overflow-hidden flex flex-col lg:flex-row shadow-3xl">
-                <!-- Pricing Left -->
-                <div class="lg:w-1/2 p-6 md:p-12 lg:p-20 border-b lg:border-b-0 lg:border-r border-white/5">
-                    <span class="inline-block bg-emerald-600 text-white px-4 py-1 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest mb-4 md:mb-6">नेपाल भर डेलिभरी</span>
-                    <h2 class="oswald text-4xl md:text-5xl font-bold mb-4 md:mb-6">३५ क्याप्सुलको मात्र <br><span class="text-emerald-500 tracking-tighter italic">रु २२००/-</span></h2>
-                    
-                    <ul class="space-y-3 md:space-y-4 mb-8 md:mb-10">
-                        <li class="flex items-center gap-3 text-emerald-100/70 text-sm md:text-base">
-                            <span class="text-emerald-500">✔</span> डेलिभरी चार्ज लाग्दैन
-                        </li>
-                        <li class="flex items-center gap-3 text-emerald-100/70 text-sm md:text-base">
-                            <span class="text-emerald-500">✔</span> सामान पाएपछि पैसा दिने
-                        </li>
-                        <li class="flex items-center gap-3 text-emerald-100/70 text-sm md:text-base">
-                            <span class="text-emerald-500">✔</span> गोप्य प्याकिङमा आउने
-                        </li>
-                    </ul>
+    <!-- Floating Contact -->
+    <a href="https://wa.me/9779800000000" class="float-whatsapp">
+      <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+        />
+      </svg>
+    </a>
 
-                    <div class="flex items-center gap-4 p-4 bg-emerald-600/10 rounded-2xl border border-emerald-600/20">
-                        <div class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center shrink-0">
-                            <svg class="w-6 h-6" fill="white" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 005.474 5.474l.772-1.548a1 1 0 011.06-.539l4.436.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
-                        </div>
-                        <p class="text-sm font-bold text-emerald-400">फोनबाट अर्डर गर्न: <br><span class="text-white text-lg">9800000000</span></p>
-                    </div>
-                </div>
-
-                <!-- Order Form Right -->
-                <div class="lg:w-1/2 p-6 md:p-12 lg:p-20">
-                    <h3 class="text-xl md:text-2xl font-bold mb-6 md:mb-8 uppercase tracking-tight">अर्डरको लागि विवरण भर्नुहोस्</h3>
-                    <!-- Added ID to form -->
-                    <form id="orderForm" class="space-y-4">
-                        <div class="relative">
-                            <!-- Added ID to Name Input -->
-                            <input type="text" id="name" placeholder="तपाईंको पूरा नाम" required class="w-full bg-black/50 border border-white/10 p-4 md:p-5 rounded-xl focus:border-emerald-600 outline-none transition-all text-base">
-                        </div>
-                        <div class="relative">
-                            <!-- Added ID to Phone Input -->
-                            <input type="text" id="phone" placeholder="मोबाइल नम्बर" required class="w-full bg-black/50 border border-white/10 p-4 md:p-5 rounded-xl focus:border-emerald-600 outline-none transition-all text-base">
-                        </div>
-                        <div class="relative">
-                            <!-- Added ID to Address Input -->
-                            <input type="text" id="address" placeholder="डेलिभरी ठेगाना (सहर/टोल)" required class="w-full bg-black/50 border border-white/10 p-4 md:p-5 rounded-xl focus:border-emerald-600 outline-none transition-all text-base">
-                        </div>
-                        <button type="submit" id="submitBtn" class="btn-primary w-full text-white font-black py-4 md:py-6 rounded-xl text-lg md:text-xl uppercase tracking-tighter mt-4 flex items-center justify-center gap-3">
-                            <span class="spinner" id="loadingSpinner"></span>
-                            <span id="btnText">अर्डर कन्फर्म गर्नुहोस्</span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sticky Footer -->
-    <div class="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6 pointer-events-none">
-        <div class="container mx-auto max-w-5xl">
-            <div class="bg-black/90 backdrop-blur-3xl border border-emerald-600/30 p-3 md:p-5 rounded-2xl md:rounded-[2.5rem] flex items-center justify-between shadow-3xl pointer-events-auto">
-                <div class="hidden sm:block">
-                    <p class="font-bold text-white text-lg leading-tight italic">हिमाली यार्सा</p>
-                    <p class="text-xs text-emerald-500 uppercase font-black tracking-widest">Premium Quality</p>
-                </div>
-                <div class="flex-1 sm:flex-none flex justify-center sm:justify-end">
-                    <a href="#order" class="w-full sm:w-auto btn-primary text-white font-black py-3 px-8 md:py-4 md:px-12 rounded-xl md:rounded-2xl text-base md:text-lg flex items-center justify-center gap-3">
-                        <span>अहिले नै बुक गर्नुहोस्</span>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-                    </a>
-                </div>
-            </div>
-        </div>
+    <!-- Sticky Mobile CTA -->
+    <div class="fixed bottom-0 left-0 right-0 p-4 md:hidden z-30">
+      <a
+        href="#order"
+        class="btn-red w-full text-white py-4 rounded-2xl font-black text-lg flex items-center justify-center gap-2 shadow-2xl backdrop-blur-md"
+      >
+        <span>अहिले अर्डर गर्नुहोस्</span>
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"
+          />
+        </svg>
+      </a>
     </div>
 
-    <div class="h-32 bg-black"></div>
+    <footer class="py-12 bg-white border-t border-gray-100 text-center">
+      <p class="text-sm text-gray-400">
+        © 2024 Himali Yarsa Nepal. All rights reserved.
+      </p>
+    </footer>
 
     <script>
-        // Countdown Timer Logic
-        function startTimer(duration, display) {
-            let timer = duration, hours, minutes, seconds;
-            setInterval(function () {
-                hours = parseInt(timer / 3600, 10);
-                minutes = parseInt((timer % 3600) / 60, 10);
-                seconds = parseInt(timer % 60, 10);
+      // Countdown Logic
+      function startTimer(duration, display) {
+        let timer = duration,
+          hours,
+          minutes,
+          seconds;
+        setInterval(() => {
+          hours = parseInt(timer / 3600, 10);
+          minutes = parseInt((timer % 3600) / 60, 10);
+          seconds = parseInt(timer % 60, 10);
 
-                hours = hours < 10 ? "0" + hours : hours;
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
+          hours = hours < 10 ? "0" + hours : hours;
+          minutes = minutes < 10 ? "0" + minutes : minutes;
+          seconds = seconds < 10 ? "0" + seconds : seconds;
 
-                display.textContent = hours + ":" + minutes + ":" + seconds;
+          display.textContent = hours + ":" + minutes + ":" + seconds;
 
-                if (--timer < 0) {
-                    timer = duration;
-                }
-            }, 1000);
-        }
+          if (--timer < 0) timer = duration;
+        }, 1000);
+      }
 
-        window.onload = function () {
-            let eightHours = 60 * 60 * 12;
-            let display = document.querySelector('#timer');
-            startTimer(eightHours, display);
-        };
+      window.onload = () => {
+        startTimer(60 * 60 * 12, document.querySelector("#timer"));
+      };
 
-        // --- GOOGLE SHEET CONNECTION SCRIPT ---
-        
-        // 1. Paste your Web App URL inside the quotes below
-        const scriptURL = 'INSERT_YOUR_GOOGLE_SCRIPT_URL_HERE'; 
+     // Form Submission
+const scriptURL = "https://script.google.com/macros/s/AKfycbziExawTLedl92tpePqMuSprUBalifQHFlpV0dgxbIBIyKN0IRNPwyQ7sq_L05QlXvt/exec";
+const form = document.getElementById("orderForm");
+const submitBtn = document.getElementById("submitBtn");
+const btnText = document.getElementById("btnText");
+const loader = document.getElementById("loader");
 
-        const form = document.getElementById('orderForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const btnText = document.getElementById('btnText');
-        const loadingSpinner = document.getElementById('loadingSpinner');
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-        form.addEventListener('submit', e => {
-            e.preventDefault();
+    submitBtn.disabled = true;
+    btnText.textContent = "प्रक्रिया हुँदैछ...";
+    loader.classList.remove("hidden");
 
-            // Show loading state
-            submitBtn.disabled = true;
-            btnText.textContent = "अर्डर हुँदैछ...";
-            loadingSpinner.style.display = "inline-block";
+    const data = {
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        address: document.getElementById("address").value,
+        date: new Date().toLocaleString(),
+    };
 
-            // Gather Data
-            const formData = {
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                address: document.getElementById('address').value
-            };
-
-            // Send to Google Sheet
-            fetch(scriptURL, {
-                method: 'POST',
-                // Important: Using text/plain prevents CORS preflight errors with Google Apps Script
-                body: JSON.stringify(formData),
-                headers: { "Content-Type": "text/plain" }
-            })
-            .then(response => {
-                // Reset form
-                form.reset();
-                
-                // Show Success Message (SweetAlert)
-                Swal.fire({
-                    title: 'धन्यवाद!',
-                    text: 'तपाईंको अर्डर प्राप्त भयो। हामी छिट्टै सम्पर्क गर्नेछौं।',
-                    icon: 'success',
-                    confirmButtonText: 'बन्द गर्नुहोस्',
-                    confirmButtonColor: '#059669'
-                });
-            })
-            .catch(error => {
-                console.error('Error!', error.message);
-                Swal.fire({
-                    title: 'माफ गर्नुहोला!',
-                    text: 'केही समस्या आयो। कृपया फोनबाट अर्डर गर्नुहोस्।',
-                    icon: 'error',
-                    confirmButtonText: 'ठिक छ',
-                    confirmButtonColor: '#d33'
-                });
-            })
-            .finally(() => {
-                // Reset button state
-                submitBtn.disabled = false;
-                btnText.textContent = "अर्डर कन्फर्म गर्नुहोस्";
-                loadingSpinner.style.display = "none";
-            });
+    try {
+        // ACTUAL API CALL to Google Apps Script
+        const response = await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors', // This is important for Google Apps Script
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
         });
-    </script>
 
-</body>
+        // Show success message
+        Swal.fire({
+            title: "धन्यवाद!",
+            text: "तपाईंको अर्डर प्राप्त भयो। हामी छिट्टै सम्पर्क गर्नेछौं।",
+            icon: "success",
+            confirmButtonText: "ठिक छ",
+            confirmButtonColor: "#059669",
+        });
+        
+        // Reset form
+        form.reset();
+        
+    } catch (error) {
+        // Show error message
+        Swal.fire({
+            title: "त्रुटि!",
+            text: "अर्डर पेश गर्दा समस्या आयो। कृपया पुनः प्रयास गर्नुहोस्।",
+            icon: "error",
+            confirmButtonText: "ठिक छ",
+            confirmButtonColor: "#dc2626",
+        });
+        console.error('Error:', error);
+    } finally {
+        // Reset button state
+        submitBtn.disabled = false;
+        btnText.textContent = "अर्डर पक्का गर्नुहोस्";
+        loader.classList.add("hidden");
+    }
+});
+    </script>
+  </body>
 </html>
