@@ -118,7 +118,8 @@
             </p>
 
             <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-              <a href="#order" class="w-full sm:w-auto bg-gradient-to-r from-red-600 to-red-500 hover:from-red-700 hover:to-red-600 text-white text-center px-8 py-4 rounded-xl font-bold text-lg shadow-xl shadow-red-500/20 transition-all transform hover:scale-105">
+              <!-- UPDATED BUTTON STYLE -->
+              <a href="#order" class="w-full sm:w-auto bg-brand-dark hover:bg-brand-base text-white text-center px-8 py-4 rounded-xl font-bold text-lg shadow-xl shadow-emerald-500/30 transition-all transform hover:scale-105">
                 अहिले नै अर्डर गर्नुहोस्
               </a>
               <div class="flex items-center gap-3 px-6 py-3 bg-white border border-gray-100 rounded-xl shadow-sm">
@@ -149,17 +150,16 @@
                
                <div class="relative bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border-4 border-white">
                   <img 
-                    src="./assets/product.PNG" 
-                    onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&q=80&w=800';" 
+                    src="./assets/hero.png" 
                     alt="Himali Yarsagumba Bottle" 
                     class="w-full h-[500px] object-cover"
                   >
                   <!-- Overlay Gradient -->
                   <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
-                     <div>
-                        <span class="bg-brand-gold text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">Premium Quality</span>
-                        <h3 class="text-white font-display text-3xl">हिमाली यार्सा</h3>
-                     </div>
+                      <div>
+                         <span class="bg-brand-gold text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">Premium Quality</span>
+                         <h3 class="text-white font-display text-3xl">हिमाली यार्सा</h3>
+                      </div>
                   </div>
                </div>
 
@@ -176,29 +176,7 @@
       </div>
     </header>
 
-    <!-- Trust Strip -->
-    <div class="bg-brand-dark text-white/90 py-8 border-t border-white/10">
-      <div class="container mx-auto px-4">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div class="flex flex-col items-center gap-2">
-            <svg class="w-8 h-8 text-brand-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>
-            <span class="font-medium text-sm md:text-base">नि:शुल्क डेलिभरी</span>
-          </div>
-          <div class="flex flex-col items-center gap-2">
-            <svg class="w-8 h-8 text-brand-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-            <span class="font-medium text-sm md:text-base">सामान पाएपछि भुक्तानी</span>
-          </div>
-          <div class="flex flex-col items-center gap-2">
-            <svg class="w-8 h-8 text-brand-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
-            <span class="font-medium text-sm md:text-base">१००% प्राकृतिक</span>
-          </div>
-          <div class="flex flex-col items-center gap-2">
-            <svg class="w-8 h-8 text-brand-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
-            <span class="font-medium text-sm md:text-base">गोप्य प्याकेजिङ</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- Trust Strip Removed -->
 
     <!-- Benefits Grid -->
     <section class="py-20 bg-white">
@@ -267,110 +245,49 @@
       </div>
     </section>
 
-    <!-- Visual Story / Origin Section (NEW) -->
-    <section class="py-20 bg-emerald-50 overflow-hidden">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="flex flex-col lg:flex-row items-center gap-16">
-            <!-- Visual Side -->
-            <div class="lg:w-1/2 relative">
-                <div class="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white rotate-2 hover:rotate-0 transition-all duration-500">
-                <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=800" alt="Himalayas Dolpa" class="w-full h-auto object-cover hover:scale-110 transition-transform duration-700">
-                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
-                    <p class="font-bold text-lg">डोल्पा, नेपाल (४००० मी.)</p>
-                    <p class="text-xs text-slate-300">हाम्रो जडिबुटीको उद्गम स्थल</p>
-                </div>
-                </div>
-                <!-- Decorative blob -->
-                <div class="absolute -top-10 -left-10 w-32 h-32 bg-yellow-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-                <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-emerald-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-            </div>
-            
-            <!-- Text Side -->
-            <div class="lg:w-1/2">
-                <span class="text-brand-base font-bold tracking-wider uppercase text-sm mb-2 block">१००% अर्गानिक स्रोत</span>
-                <h2 class="font-display text-4xl lg:text-5xl font-bold text-slate-900 mb-6">डोल्पाको हिमालदेखि <br> <span class="gold-text">तपाईंको घरसम्म</span></h2>
-                <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                बजारमा पाइने नक्कली र मिसावटयुक्त औषधिबाट बच्नुहोस्। हाम्रो यार्सागुम्बा सिधै डोल्पाका स्थानीय संकलकहरूबाट ल्याइन्छ।
-                </p>
-                
-                <div class="space-y-6">
-                <div class="flex items-start gap-4">
-                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md text-brand-dark shrink-0">
-                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-slate-900 text-lg">प्राकृतिक संकलन</h4>
-                        <p class="text-slate-500 text-sm">कुनै मेसिन होइन, हातले टिपिएको शुद्ध जडिबुटी।</p>
-                    </div>
-                </div>
-                <div class="flex items-start gap-4">
-                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md text-brand-dark shrink-0">
-                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-slate-900 text-lg">ल्याब टेस्टेड</h4>
-                        <p class="text-slate-500 text-sm">सरकारी प्रयोगशालाबाट गुणस्तर प्रमाणित।</p>
-                    </div>
-                </div>
-                </div>
-            </div>
-            </div>
+    <!-- Visual Story / Origin Section (Updated Content) -->
+<section class="min-h-[740px] pt-[40px] pb-[40px] bg-emerald-50 overflow-hidden flex items-center">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="flex flex-col lg:flex-row items-center gap-16">
+      
+      <!-- Visual Side -->
+      <div class="lg:w-1/2 relative">
+        <div class="relative z-10 h-[460px] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white rotate-2 hover:rotate-0 transition-all duration-500">
+          <img src="./assets/productsection.png" alt="Himalayas Dolpa" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
+            <p class="text-xs text-slate-300">हाम्रो जडिबुटीको उद्गम स्थल</p>
+          </div>
         </div>
-    </section>
-
-    <!-- NEW SECTION: Package & Product Gallery (Similar to referenced website) -->
-    <section class="py-20 bg-white">
-      <div class="container mx-auto px-4">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <span class="text-brand-base font-bold tracking-wider uppercase text-sm mb-2 block">Our Package</span>
-          <h2 class="font-display text-4xl font-bold text-slate-900 mb-4">हाम्रो प्याकेज <span class="gold-text">तस्बिरहरू</span></h2>
-          <div class="h-1 w-20 bg-brand-gold mx-auto rounded-full"></div>
-          <p class="mt-4 text-slate-600">तपाईंले प्राप्त गर्ने प्याकेज र उत्पादनको स्पष्ट झलक।</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
-           <!-- Large Main Image -->
-           <div class="relative group rounded-3xl overflow-hidden shadow-2xl border border-gray-100 bg-slate-50">
-              <div class="absolute top-4 left-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full z-10 animate-pulse">ORIGINAL</div>
-              <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=800" alt="Product Package Full" class="w-full h-[400px] object-cover hover:scale-105 transition duration-700">
-              <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 to-transparent p-6 text-white">
-                 <h3 class="text-xl font-bold font-display">सुरक्षित प्याकेजिङ</h3>
-                 <p class="text-sm opacity-90">गोप्य र सुरक्षित बक्समा डेलिभरी</p>
-              </div>
-           </div>
-
-           <!-- Details Column -->
-           <div class="flex flex-col gap-6">
-              <!-- Detail 1 -->
-              <div class="flex gap-4 items-center bg-slate-50 p-4 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition">
-                 <img src="./assets/de1.jpeg" class="w-24 h-24 rounded-xl object-cover shrink-0" alt="Capsule Detail">
-                 <div>
-                    <h4 class="font-bold text-lg text-slate-900">क्याप्सुलको गुणस्तर</h4>
-                    <p class="text-sm text-slate-600">उच्च गुणस्तरको क्याप्सुल जसले छिटो काम गर्छ।</p>
-                 </div>
-              </div>
-
-              <!-- Detail 2 -->
-              <div class="flex gap-4 items-center bg-slate-50 p-4 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition">
-                 <img src="./assets/de2.jpeg" class="w-24 h-24 rounded-xl object-cover shrink-0" alt="Raw Herbs">
-                 <div>
-                    <h4 class="font-bold text-lg text-slate-900">शुद्ध जडिबुटी</h4>
-                    <p class="text-sm text-slate-600">देख्न सकिने शुद्धता र असली यार्सागुम्बाको मिश्रण।</p>
-                 </div>
-              </div>
-              
-              <!-- Warning Box (Similar to reference site) -->
-              <div class="bg-red-50 border border-red-200 p-6 rounded-2xl">
-                 <div class="flex items-center gap-3 mb-2 text-red-700">
-                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-                    <h4 class="font-bold text-lg">सावधान ! (Warning)</h4>
-                 </div>
-                 <p class="text-sm text-red-800">बजारमा थुप्रै डुप्लिकेट र नक्कली यार्सागुम्बा पाइने हुनाले सस्तोको पछि नलाग्नुहोस्। असली सामान हामीसँग मात्र छ।</p>
-              </div>
-           </div>
-        </div>
+        <!-- Decorative blob -->
+        <div class="absolute -top-10 -left-10 w-32 h-32 bg-yellow-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+        <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-emerald-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
       </div>
-    </section>
+      
+      <!-- Text Side -->
+      <div class="lg:w-1/2">
+        <h2 class="font-display text-4xl lg:text-5xl font-bold text-slate-900 mb-6">के तपाईं <span class="gold-text">कमजोरी</span> महसुस गर्दै हुनुहुन्छ ?</h2>
+        <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+          बढ्दो उमेर, तनाव र खानपानका कारण धेरै पुरुषहरुले शक्ति र स्टामिनामा कमी महसुस गर्छन्। यसले तपाईंको आत्मविश्वास मात्र होइन, पारिवारिक सम्बन्धमा पनि असर पार्न सक्छ ।
+        </p>
+        
+        <div class="p-6 bg-emerald-100 rounded-2xl border-l-4 border-brand-base mb-8">
+          <p class="text-xl font-bold text-brand-dark">
+            चिन्ता नलिनुहोस्, प्रकृतिसँग यसको समाधान छ।
+          </p>
+        </div>
+
+        <a href="#order" class="inline-flex items-center gap-2 bg-brand-dark hover:bg-brand-base text-white px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-emerald-500/30 transform hover:-translate-y-0.5">
+          <span>अर्डर गर्नुहोस्</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+    <!-- Pricing Packages Removed -->
 
     <!-- Usage Section (Updated with Visuals) -->
     <section class="py-20 bg-brand-dark text-white relative overflow-hidden">
@@ -433,8 +350,8 @@
                    <div class="flex gap-4 p-4 rounded-2xl hover:bg-slate-50 transition-colors">
                       <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full object-cover border-2 border-brand-base p-0.5">
                       <div>
-                         <h5 class="font-bold text-slate-900">रमेश अधिकारी, काठमाडौं</h5>
-                         <p class="text-slate-600 text-sm mt-1">"मैले धेरै औषधि प्रयोग गरेँ तर यो जस्तो अरु कुनै पाइन। प्रयोग गरेको १ हप्तामै शरीरमा जोस र जाँगर आएको महसुस भयो।"</p>
+                          <h5 class="font-bold text-slate-900">रमेश अधिकारी, काठमाडौं</h5>
+                          <p class="text-slate-600 text-sm mt-1">"मैले धेरै औषधि प्रयोग गरेँ तर यो जस्तो अरु कुनै पाइन। प्रयोग गरेको १ हप्तामै शरीरमा जोस र जाँगर आएको महसुस भयो।"</p>
                       </div>
                    </div>
                    
@@ -442,8 +359,8 @@
                    <div class="flex gap-4 p-4 rounded-2xl hover:bg-slate-50 transition-colors">
                       <img src="https://randomuser.me/api/portraits/men/45.jpg" class="w-12 h-12 rounded-full object-cover border-2 border-brand-base p-0.5">
                       <div>
-                         <h5 class="font-bold text-slate-900">सुजन श्रेष्ठ, पोखरा</h5>
-                         <p class="text-slate-600 text-sm mt-1">"एकदमै राम्रो उत्पादन। साइड इफेक्ट केही पनि छैन। सुरुमा डर लागेको थियो तर अहिले ढुक्क छु। सबैसँग सिफारिस गर्छु।"</p>
+                          <h5 class="font-bold text-slate-900">सुजन श्रेष्ठ, पोखरा</h5>
+                          <p class="text-slate-600 text-sm mt-1">"एकदमै राम्रो उत्पादन। साइड इफेक्ट केही पनि छैन। सुरुमा डर लागेको थियो तर अहिले ढुक्क छु। सबैसँग सिफारिस गर्छु।"</p>
                       </div>
                    </div>
 
@@ -451,8 +368,8 @@
                    <div class="flex gap-4 p-4 rounded-2xl hover:bg-slate-50 transition-colors">
                       <img src="https://randomuser.me/api/portraits/men/22.jpg" class="w-12 h-12 rounded-full object-cover border-2 border-brand-base p-0.5">
                       <div>
-                         <h5 class="font-bold text-slate-900">दिनेश चौधरी, चितवन</h5>
-                         <p class="text-slate-600 text-sm mt-1">"उमेर बढ्दै जाँदा कमजोर महसुस हुन्थ्यो, तर यो खाएपछि जवानी फर्केको जस्तो भएको छ। प्याकिङ पनि एकदम गोप्य रहेछ।"</p>
+                          <h5 class="font-bold text-slate-900">दिनेश चौधरी, चितवन</h5>
+                          <p class="text-slate-600 text-sm mt-1">"उमेर बढ्दै जाँदा कमजोर महसुस हुन्थ्यो, तर यो खाएपछि जवानी फर्केको जस्तो भएको छ। प्याकिङ पनि एकदम गोप्य रहेछ।"</p>
                       </div>
                    </div>
                 </div>
@@ -576,7 +493,8 @@
                 </div>
               </div>
 
-              <button type="submit" id="submitBtn" class="w-full bg-brand-accent hover:bg-red-700 text-white font-bold rounded-xl text-lg px-5 py-5 text-center transition-all transform hover:-translate-y-1 shadow-xl shadow-red-500/30 flex justify-center items-center gap-3">
+              <!-- UPDATED BUTTON STYLE -->
+              <button type="submit" id="submitBtn" class="w-full bg-brand-dark hover:bg-brand-base text-white font-bold rounded-xl text-lg px-5 py-5 text-center transition-all transform hover:-translate-y-1 shadow-xl shadow-emerald-500/30 flex justify-center items-center gap-3">
                 <span id="btnText">अर्डर पक्का गर्नुहोस्</span>
                 <div id="loader" class="hidden animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
                 <svg id="btnIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
@@ -593,7 +511,7 @@
     </section>
 
     <!-- Floating WhatsApp -->
-    <a href="https://wa.me/9779800000000" class="fixed bottom-24 md:bottom-10 right-4 z-50 bg-[#25D366] text-white p-3 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center gap-2 group overflow-hidden pr-6">
+    <a href="https://wa.me/9779800000000" class="fixed bottom-24 md:bottom-10 right-4 z-50 bg-[#25D366] text-white p-3 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center gap-2 group overflow-hidden pr-1 pl-3">
       <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
       <span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-in-out whitespace-nowrap font-bold">Chat on WhatsApp</span>
     </a>
